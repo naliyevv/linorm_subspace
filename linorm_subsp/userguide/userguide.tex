@@ -1,0 +1,390 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{verbatim}
+\usepackage{dirtree}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage[section]{placeins}
+\usepackage{pbox}
+\author{Paul Schwerdtner \and Matthias Voigt\thanks{Technische Universit\"at Berlin, Institut f\"ur Mathematik, Stra{\ss}e des 17. Juni 136, 10623 Berlin, Germany, \newline E-Mails: \texttt{p.schwerdtner@campus.tu-berlin.de, mvoigt@math.tu-berlin.de}. \newline This work is supported by the DFG priority program 1897: ``Calm, Smooth and Smart -- Novel Approaches for Influencing Vibrations by Means of Deliberately Introduced Dissipation''.}}
+\title{\texttt{linorm\_subsp} \texttt{v1.2} Users' Guide}
+\begin{document}
+\maketitle
+\begin{abstract}
+\texttt{linorm\_subsp} is a \textsc{Matlab} software package for the computation of the $\mathcal{L}_\infty$-norm of possibly nonrational $\mathcal{L}_\infty$-functions. In particular, transfer functions of large-scale descriptor and delay systems can be handled. In this users' guide we give an overview of this software, provide information on its installation, and illustrate its usage by means of a few examples.
+\end{abstract}
+
+\section{Introduction}
+\texttt{linorm\_subsp} is a \textsc{Matlab} package for the computation of the $\mathcal{L}_\infty$-norm of $\mathcal{L}_\infty$-functions. The function $G: \Omega  \rightarrow \mathbb{C}^{p \times m}$, where $\Omega \subseteq \mathbb{C}$ is open and encloses the imaginary axis, may be given in two different ways.
+\begin{enumerate}
+    \item The function can be given in the general form
+        \begin{align} \label{eq:G1}
+        G(s) := C(s)(sE(s) - A(s))^{-1}B(s) + D(s).
+        \end{align}
+         It is assumed that the matrix-valued functions $E,\,A: \Omega \rightarrow \mathbb{C}^{n \times n}$, $B: \Omega \rightarrow \mathbb{C}^{n \times m}$, $C: \Omega \rightarrow \mathbb{C}^{p \times n}$, and $D:\Omega \rightarrow \mathbb{C}^{p \times m}$ are defined by
+        \begin{align} \label{eq:G2}
+        \begin{split}
+        A(s)&:= f_1(s)A_1 + \dots + f_{\kappa_A}(s)A_{\kappa_A}, \\
+        B(s)&:= g_1(s)B_1 + \dots + g_{\kappa_B}(s)B_{\kappa_B}, \\
+        C(s)&:= h_1(s)C_1 + \dots + h_{\kappa_C}(s)C_{\kappa_C}, \\
+        D(s)&:= k_1(s)D_1 + \dots + k_{\kappa_D}(s)D_{\kappa_D}, \\
+        E(s)&:= \ell_1(s)E_1 + \dots + \ell_{\kappa_E}(s)E_{\kappa_E}
+        \end{split}
+        \end{align}
+        for given matrices $A_1,\,\ldots,\,A_{\kappa_A},\,E_1,\,\ldots,\,E_{\kappa_E} \in \mathbb{R}^{n \times n}$, $B_1,\,\ldots,\,B_{\kappa_B} \in \mathbb{R}^{n \times m}$, $C_1,\,\ldots,\, C_{\kappa_C} \in \mathbb{R}^{p \times n}$, $D_1,\,\ldots,\,D_{\kappa_D} \in \mathbb{R}^{p \times m}$, and given meromorphic functions $f_1,\,\ldots,\,f_{\kappa_A},\,g_1,\,\ldots,\,g_{\kappa_B},\,h_1,\,\ldots,\,h_{\kappa_C},\,k_1,\,\ldots,\,k_{\kappa_D},\,\ell_1,\,\ldots,\, \ell_{\kappa_E}: \Omega \rightarrow \mathbb{C}$. 
+    \item The function $G$ may also be given as a function handle. Then the structural constraints in \eqref{eq:G1} and \eqref{eq:G2} can be circumvented. 
+\end{enumerate}
+
+We define the space
+\begin{multline*}
+ \mathcal{L}_\infty^{p \times m} := \left\{ G|_{\mathrm{i}\mathbb{R}} \; \bigg| \; H : \Omega \rightarrow \mathbb{C}^{p \times m} \text{ is analytic for an open domain } \Omega \subseteq \mathbb{C} \right. \\ \left. \text{ with } \mathrm{i}\mathbb{R} \subset \Omega \text{ and } \sup_{\omega \in \mathbb{R}}\left\| G(\mathrm{i}\omega) \right\|_2 < \infty \right\}, 
+\end{multline*}
+where $\mathbb{C}^+:=\{ s \in \mathbb{C} \;|\; \operatorname{Re}(s) > 0 \}$ denotes the open right complex half-plane.
+For a function $G \in \mathcal{L}_\infty^{p \times m}$, the $\mathcal{L}_\infty$-norm is defined by
+\begin{equation*}
+ \left\| G \right\|_{\mathcal{L}_\infty} := \sup_{\omega \in \mathbb{R}} \left\| G(\mathrm{i}\omega) \right\|_2 = \sup_{\omega \in \mathbb{R}} \sigma_{\max}(G(\mathrm{i}\omega)), 
+\end{equation*}
+where $\sigma_{\max}(\cdot)$ denotes the largest singular value of its matrix argument.
+
+The package \texttt{linorm\_subsp} is designed to compute this norm efficiently, particularly for the case where $n$ is very large and further $n \gg m,\,p$. Details on the algorithm and numerical results are described in the two references \cite{AliBMSV17,SchV18}. 
+
+\section{Overview and Usage}
+\subsection{Content}
+The package \texttt{linorm\_subsp} is distributed via the archive \texttt{linorm\_subsp.tar.gz}. The directory tree in Figure~\ref{fig:dirtree} lists all files that are obtained after the extraction of the archive. 
+\begin{figure}[tb]
+\dirtree{%
+.1 linorm\_subsp v1.1.
+.2 AB13HD.
+.3 AB13HD.f, linorm\_h.F, makefile, make.inc, makemex.m.
+.2 eigopt.
+.3 private.
+.4 bfgs1run.m, bfgs.m, isnaninf.m, isnonnegint.m, isposreal.m, linesch\_sw.m, linesch\_ww.m, plotcircle.m, plotcontours.m, setdefaults.m, setwolfedefaults.m.
+.3 eigopt.m, evalq.m, heapinsert.m, heapremove.m, heapsort.m, heapupdate.m, H\_infinity.m, isboundary.m, plot\_dead.m, plot\_graph.m.
+.2 Loewner.
+.3 evalFun.m, getLoewnerSystem.m, sampleFun.m, sampleG.m.
+.2 tools.
+.3 makeSysStruct.m, plotFun.m.
+.2 userguide.
+.3 userguide.bib, userguide.pdf, userguide.tex.
+.2 biorthnorm.m.
+.2 diary.dia.
+.2 getSubspace.m.
+.2 Linf.m.
+.2 linorm\_h.mexa64.
+.2 linorm\_subsp.m.
+.2 orthnorm.m.
+.2 reduceSystem.m.
+.2 testrun.m.
+}
+\caption{Directory tree for the \texttt{linorm\_subsp} package.}
+\label{fig:dirtree}
+\end{figure}
+
+\subsection{Call of \texttt{linorm\_subsp}}
+Within \textsc{Matlab} the call of the function \texttt{linorm\_subsp} is
+\begin{verbatim}
+[ f, z, info ] = linorm_subsp( sys, opt ).
+\end{verbatim}
+If the function $G$ has the format in \eqref{eq:G1} and \eqref{eq:G2}, then \texttt{sys} is a struct containing the information of the matrix-valued functions $A,\,B,\,C,\,D,\,E$. Each of these functions is given by the decomposition into its summands by cell arrays
+\begin{verbatim}
+sys.X = { X_1, ..., X_kX },
+\end{verbatim}
+where \texttt{X\_i} represents the $i$-th matrix for one of the functions under consideration. Moreover, the functions $f_i,\,g_i,\,h_i,\,k_i,\,\ell_i$ must in general be supplied as function handles in a row vector
+\begin{verbatim}
+sys.fct.x = @(s)[ x_1(s), ..., x_kX(s) ], 
+\end{verbatim}
+where \texttt{x} represents one of the above function families. In this case, the switch \texttt{sys.fct.type = 'l'} must be set.
+
+For the most common function types, several simplifications have been implemented. For the case of the transfer function of a delay system, one can use the switch \texttt{sys.fct.type = 'd'}. Then the functions $f_i,\,g_i,\,h_i,\,k_i,\,\ell_i$ all attain the form $x_i(s) = \mathrm{e}^{-s\tau_{x_i}}$. Then it is only necessary to give the delays $\tau_{x_i}$ within a row vector as
+\begin{verbatim}
+sys.fct.x = [ tau_x_1, ..., tau_x_kX ].
+\end{verbatim}
+Moreover, if $G$ is the transfer function of a linear system, then $A,\,B,\,C,\,D,\,E$ are all constant and therefore, \texttt{sys.X} only needs to contain the respective matrix $X \in \left\{ A,\,B,\,C,\,D,\,E \right\}$.
+
+The variable \texttt{opt} is a struct that contains several options that can be specified to customize the $\mathcal{L}_\infty$-norm computation. Possible options and their respective default values are given in Table~\ref{tab:opt}.
+\begin{longtable}{p{0.2\linewidth}p{0.7\linewidth}}
+\caption{Possible options in \texttt{opt} and their default values.} \\
+\label{tab:opt}
+\centering
+\textbf{Option}   & \textbf{Description} \\ \hline
+\texttt{tolz}          & relative tolerance on the change of the optimal
+                         frequencies between two consecutive iterations.
+                         If the computed optimal frequencies between two
+                         consecutive iterations have relative distance
+                         less than \texttt{opt.tolz}, then the algorithm is
+                         assumed to be converged (\texttt{default = 1e-6}). \\ \hline
+\texttt{tolf}          & relative tolerance on the change of the
+                         computed $\mathcal{L}_\infty$-norms between two 
+                         consecutive iterations. If the computed 
+                         $\mathcal{L}_\infty$-norms between two consecutive
+                         iterations have relative distance less than
+                         \texttt{opt.tolf}, then the algorithm is assumed to be
+                         converged (\texttt{default = 1e-6}).\\ \hline
+\texttt{maxit}         & maximum number of iterations allowed until 
+                         termination of the algorithm (\texttt{default = 30}). \\ \hline
+\texttt{initialPoints} & initial frequencies of the initial 
+                         interpolation points on the imaginary axis. \\ \hline
+\texttt{prtlevel}      & specifies the print level as follows: \\
+                       & = 0: return no information; \\
+                       & = 1: return minimal information; \\
+                       & = 2: return full information \\
+                       & (default = 0).\\ \hline
+\texttt{boydbalak}     & specifies which implementation of the  
+                         Boyd-Balakrishnan algorithm is used for the 
+                         computation of the $\mathcal{L}_\infty$-norm of the 
+                         reduced functions as follows: \\
+                       & = 0: use the FORTRAN routine \texttt{AB13HD.f} which is
+                              called by the gateway function generated
+                              by \texttt{linorm\_h.F}; \\
+                       & = 1: use the function 'norm' of the MATLAB
+                              Control System Toolbox (WARNING: This may
+                              not work, if the reduced descriptor matrix
+                              pars.E is singular.); \\
+                       & (default = 0). \\ \hline                       
+\texttt{eigopt.bounds} & a vector \texttt{[ lowerBound,  upperBound ]} specifying
+                         the interval in which \texttt{eigopt} shall optimize the
+                         maximum singular value of the function $G(s)$ in 
+                         \eqref{eq:G1}. This option is only used if 
+                         \texttt{opt.doLoewner == 0}. \\ \hline
+\texttt{eigopt.gamma}  & a lower bound for the second derivative of the
+                         the function $-\sigma_{\max}(G(\mathrm{i}\omega))$ where $\omega$ is 
+                         within \texttt{opt.eigopt.bounds}. This option is only
+                         used if \texttt{opt.doLoewner == 0}. \\ \hline
+\texttt{keepSubspaces} & specifies whether the intermediate subspaces
+                         obtained during the iteration are kept as
+                         follows: \\
+                       & = 0: only the subspaces of the initial reduced
+                         function and the past two subspaces
+                         obtained during the iteration are kept; \\
+                       & = 1: all the interpolation subspaces are kept 
+                         during the iteration. This will let the 
+                         dimensions of projection spaces grow in
+                         every iteration but is more robust in many
+                         cases \\
+                       & (\texttt{default = 1}). \\ \hline
+\texttt{biorth}        & specifies which orthonormalization scheme is
+                         used as follows: \\
+                       & = 0: the intermediate projection spaces
+                         contained in $U$ and $V$ are orthonormalized
+                         separately, i.\,e., $U^\textsf{H} U = V^\textsf{H} V = I_k$ for
+                         some $k$; \\
+                       & = 1: the intermediate projection spaces are
+                         bi-orthonormalized, i.\,e., $U^\mathsf{H} V = I_k$
+                         for some $k$ \\
+                       & (\texttt{default = 0}). \\ \hline
+\texttt{orthtol}       & relative truncation tolerance in \texttt{svd} for the 
+                         determination of an orthonormal basis of a
+                         subspace or bi-orthonormal bases of two
+                         subspaces (\texttt{default = 1e-12}). \\ \hline
+\texttt{maxSing}       & specifies how the projection spaces are
+                         constructed as follows: \\
+                       & = 0: all the singular vectors of $G(\mathrm{i}\omega)$ at an 
+                         interpolation point $\mathrm{i}\omega$ are included in
+                         the updated projection spaces; \\
+                       & = 1: only the singular vectors corresponding to
+                         the largest singular value of $G(\mathrm{i}\omega)$ at an 
+                         interpolation point $\mathrm{i}\omega$ are included in 
+                         the updated projection spaces \\
+                       & (\texttt{default = 0}). \\ \hline
+\texttt{doLoewner}     & specifies whether the Loewner approach is
+                         used to calculate the $\mathcal{L}_\infty$-norm as
+                         follows: \\
+                       & = 0: the Loewner framework is not used; \\
+                       & = 1: the Loewner framework is used \\
+                       & (\texttt{default = 0}). \\ \hline
+\texttt{fnHandle}      & specifies whether a function handle is passed
+                         to linorm\_subsp. In this case, the Loewner
+                         approach is used to construct a rational 
+                         function that matches the function evaluations. \\
+                       & = 0: no function handle, but a function of the
+                              previously defined format is passed; \\
+                       & = 1: a function handle is passed \\
+                       & (\texttt{default = 0}). \\ \hline
+\end{longtable}
+Initial frequencies must always be given in order to start the computation of the $\mathcal{L}_\infty$-norm with \texttt{linorm\_subsp}. Further, \texttt{eigopt.bounds} and \texttt{eigopt.gamma} must be provided if \texttt{eigopt} is used for computing the norm.
+The routine \texttt{linorm\_subsp} has three output arguments, where \texttt{f} denotes the computed value of the $\mathcal{L}_\infty$-norm, \texttt{z} is the corresponding optimal frequency, and \texttt{info} is a struct containing information about the computation such as an error indicator. A list of the information gained throughout the computation is contained in Table~\ref{tab:info}. 
+\begin{longtable}{p{0.2\linewidth}p{0.7\linewidth}}
+\caption{Information contained in \texttt{info} on exit.} \\
+\label{tab:info}
+\centering
+\textbf{Variable}      & \textbf{Description} \\ \hline
+\texttt{time}          & time needed to compute the result. \\ \hline
+\texttt{iterations}    & number of iterations at termination of the
+                         algorithm. \\ \hline 
+\texttt{finaltolz}     & relative distance of the variable \texttt{z} between
+                         the last two iterations before termination. \\ \hline
+\texttt{finaltolf}     & relative distance of the variable \texttt{f} between
+                         the last two iterations before termination. \\ \hline
+\texttt{termcrit}      & specifies which termination criteria are
+                         satisfied as follows: \\
+                       & = 0: both the optimal frequency \texttt{z} and the 
+                              $\mathcal{L}_\infty$-norm \texttt{f} have converged; \\
+                       & = 1: only the optimal frequency \texttt{z} has
+                              converged, but the $\mathcal{L}_\infty$-norm may be
+                              inaccurate; \\
+                       & = 2: only the $\mathcal{L}_\infty$-norm \texttt{f} has converged,
+                              but the optimal frequency may be
+                              inaccurate; \\
+                       & = 3: the algorithm has terminated by reaching
+                              the maximum number of iterations. \\ \hline
+\texttt{error}         & contains an error indicator as follows: \\
+                       & = 0: return without an error; \\
+                       & = 1: the maximum number of iterations  
+                              specified in \texttt{opt.maxit} has been exceeded. \\ \hline
+\end{longtable}
+
+\section{Installation}
+Almost all routines used by \texttt{linorm\_subsp} are written in \textsc{Matlab}. Only the routine \texttt{AB13HD} in the subdirectory \texttt{AB13HD} has to be compiled before usage. It is the Fortran implementation of the Boyd-Balakrishnan algorithm for descriptor systems from \cite{BenSV12}. We have provided a precompiled gateway function \texttt{linorm\_h.mexa64} that can be used as is on 64bit Linux machines. This is the case if the call 
+\begin{verbatim}
+computer
+\end{verbatim}
+in \textsc{Matlab} returns the result \texttt{'GLNX64'}. Otherwise, the gateway function has to be generated manually. We describe this process for Linux machines within the next subsections. On other architectures, these steps must be adapted.
+
+From version 1.2 of \texttt{linorm\_subsp}, the option \texttt{boydbalak = 1} can be used to choose \textsc{Matlab}'s built-in implementation of the Boyd-Balakrishnan algorithm. It uses the SLICOT implementation of the algorithm for standard and generalized state-space systems. This avoids the need of recompiling \texttt{AB13HD.f} and \texttt{linorm\_h.F} on certain architectures and the following steps of the installation can be skipped. 
+
+\textbf{WARNING:} Using the option \texttt{boydbalak = 1} may result in false results or an error, if one of the reduced descriptor system realizations constructed in the algorithm has a singular descriptor matrix contained in \texttt{pars.E}.
+
+\subsection{Before Installation}
+The routine \texttt{AB13HD} and its gateway function make calls to subprograms from the software packages SLICOT (Subroutine Library in Control Theory), LAPACK (Linear Algebra Package) and BLAS (Basic Linear Algebra Subprograms). Thus it is necessary to download and install these libraries before compilation.
+
+SLICOT source code and the prebuilt library are freely available for academic users after registration from the SLICOT website\footnote{available from \url{http://slicot.org}.}. The LAPACK and BLAS libraries are freely downloadable from netlib \footnote{available from \url{http://www.netlib.org/}.}. However, for maximum efficiency it is recommended to use machine-specific, optimized versions whenever possible. The library versions that are provided by \textsc{Matlab} should be sufficiently efficient.
+
+\subsection{Building \texttt{AB13HD.o}}
+To compile the Fortran source code \texttt{AB13HD.f} to obtain the object file \texttt{AB13HD.o}, a make file \texttt{makefile} and the associated file \texttt{make.inc} have been provided within the subfolder \texttt{AB13HD}. In order to use this make file on a specific Unix platform, some changes may be necessary in these files. 
+
+The changes in \texttt{make.inc} might define the specific the compiler, linker, and compiler options, as well as the location and names of the SLICOT, LAPACK, and BLAS libraries, which the program files should be linked to. Details are given in the file \texttt{make.inc}.
+
+\textbf{IMPORTANT:} On 64bit platforms the code must be compiled with the options \texttt{-fPIC} and \texttt{-fdefault-integer-8}, for instance by setting
+\begin{verbatim}
+OPTS = -O2 -fPIC -fdefault-integer-8
+\end{verbatim}
+in \texttt{make.inc}.
+
+After performing the necessary changes, as suggested in the comments of \texttt{makefile} and \texttt{make.inc}, the object file \texttt{AB13HD.o} can be obtained by calling
+\begin{verbatim}
+make
+\end{verbatim}
+in a shell from the subdirectory \texttt{AB13HD}.
+
+\subsection{Creating a Gateway Function for Running \texttt{AB13HD} in \textsc{Matlab}}
+For calling \texttt{AB13HD.o} from \textsc{Matlab}, the MEX-file \texttt{linorm\_h.F} has been written to generate a gateway function. To do this, one must first modify the file \texttt{makemex.m} in the subfolder \texttt{AB13HD} and set the location of the compiled SLICOT library in the variable \texttt{libslicot}. After that, the \textsc{Matlab} call
+\begin{verbatim}
+makemex
+\end{verbatim}
+from the subdirectory \texttt{AB13HD} should generate the gateway function which can then be called by \texttt{linorm\_subsp}.
+
+\section{Examples}
+Here we explain four examples to the illustrate the usage of \texttt{linorm\_subsp}. The output for all of these and further examples can be found in the file \texttt{diary.dia}.
+
+\subsection{Minimal Example -- \texttt{build}}
+\texttt{build} is a SLICOT benchmark model\footnote{see \url{http://slicot.org/20-site/126-benchmark-examples-for-model-reduction}.} with system matrices of small size. The dynamical system is given by
+\begin{align} \label{eq:dsys}
+\begin{split}
+E\dot{x}(t) &= Ax(t) + Bu(t), \\
+       y(t) &= Cx(t) + Du(t)
+\end{split}
+\end{align}
+with $E,\,A \in \mathbb{R}^{48 \times 48}$, $B,\,C^\mathsf{T} \in \mathbb{R}^{48 \times 1}$, and $D = 0$. First, the system matrices need to be stored in a struct that fits the convention used in \texttt{linorm\_subsp}. For convenience, the function \texttt{makeSysStruct} from the subdirectory \texttt{tools} can be called. This function takes the matrices $E,\,A,\,B,\,C,$ and $D$ as arguments and saves them within a struct that is the output of the \texttt{makeSysStruct}. Afterward, initial frequencies for the interpolation need to be defined since this is a mandatory input argument of \texttt{linorm\_subsp}. To compute the $\mathcal{L}_\infty$-norm of the system's transfer function, \texttt{linorm\_subsp} can be called as follows:
+\begin{verbatim}
+%
+% sys is constructed.
+%
+sys = makeSysStruct( E, A, B, C, 0 );
+%
+% Initial frequencies are defined.
+%
+opt.initialPoints = linspace( 0, 100, 10 );
+%
+% Main call.
+%
+[ f, z, info ] = linorm_subsp( sys, opt );
+\end{verbatim}
+
+\subsection{MIMO Example -- \texttt{mimo46x46\_system}}
+In this example, a more customized use of \texttt{linorm\_subsp} is shown. The model \texttt{mimo46x46\_system}\footnote{available from \url{https://sites.google.com/site/rommes/software}.} is a linear descriptor system as in \eqref{eq:dsys} defined by matrices of much larger dimension, i.\,e., $E,\,A \in \mathbb{R}^{13250 \times 13250}$ and $B,\,C^\mathsf{T} \in \mathbb{R}^{13250 \times 46}$. Because of the considerable number of columns in $B$ and $C^\mathsf{T}$ it is advisable to only take the singular vectors corresponding to the maximum singular values of the reduced functions into the interpolation subspaces by using the option \texttt{opt.maxSing = 1}. the function call is given by the following code:
+\begin{verbatim}
+%
+% sys is constructed.
+%
+sys = makeSysStruct( E, A, B, C, 0 );
+%
+% Set options.
+%
+opt.initialPoints = linspace( 0, 10, 10 );
+opt.maxSing = 1;
+%
+% Main call.
+%
+[ f, z, info ] = linorm_subsp( sys, opt ); 
+\end{verbatim}
+
+\subsection{Delay Example Using \texttt{eigopt}}
+In this example, we aim to compute the $\mathcal{L}_\infty$-norm of the transfer function of a delay system. This system is given by
+\begin{align*}
+E\dot{x}(t) &= A_1x(t) + A_2x(t-\tau) + Bu(t), \\
+       y(t) &= Cx(t).
+\end{align*}
+The input struct \texttt{sys} is constructed using a cell array to store $A_1$ and $A_2$ instead of calling \texttt{makeSysStruct}. Moreover, the flag \texttt{sys.fct.type = 'd'} must be set to indicate that the system is a delay system and the delays for $A_1$ and $A_2$ are defined within \texttt{sys.fct.a}. The following code determines the struct \texttt{sys}:
+\begin{verbatim}
+sys.A = { A0, A1 };
+sys.B = B;
+sys.C = C;
+sys.D = D;
+sys.E = E;
+sys.fct.type = 'd';
+sys.fct.a = [ 0, tau ];
+\end{verbatim}
+In the script below this is done within the function \texttt{delay\_model} (which also takes inputs for the parameters of the model). 
+
+Finally, the options for \texttt{eigopt} are set and the folder \texttt{eigopt} is added to \textsc{Matlab}'s path. The complete call looks as follows:
+\begin{verbatim}
+%
+% Add path for eigopt.
+%
+addpath( 'eigopt' );
+%
+% sys is constructed.
+%
+sys = delay_model( 500, 5, 0.01, 1 );
+%
+% eigopt options are set.
+%
+opt.eigopt.bounds = [ 0, 50 ];
+opt.eigopt.gamma = -100;
+opt.initialPoints = linspace( 0, 50, 10 );
+%
+% Main call.
+%
+[ f, z, info ] = linorm_subsp( sys, opt );
+\end{verbatim}
+
+\subsection{Delay Example Using the Loewner Approach}
+Now, the $\mathcal{L}_{\infty}$-norm of the same system is computed using the Loewner approach. The main difference is that the directory containing the functions necessary to compute the Loewner matrices must be included to the \textsc{Matlab} path. Also the option \texttt{opt.doLoewner = 1} must be set. The complete call looks as follows:
+\begin{verbatim}
+%
+% Add path for Loewner.
+%
+addpath( 'Loewner' );
+%
+% sys is constructed.
+%
+sys = delay_model( 500, 5, 0.01, 1 );
+%
+% Choose the Loewner framework.
+%
+opt.doLoewner = 1;
+opt.initialPoints = linspace( 0, 50, 10 );
+%
+% Main call.
+%
+[ f, z, info ] = linorm_subsp( sys, opt );
+\end{verbatim} 
+
+\bibliographystyle{plain}
+\bibliography{userguide}
+\end{document}
