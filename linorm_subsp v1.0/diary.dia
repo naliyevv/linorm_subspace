@@ -1,0 +1,462 @@
+===========================================================
+TEST SERIES FOR linorm_subsp.m
+===========================================================
+Date: 01-Jun-2017.
+Version: 9.0.0.341360 (R2016a).
+Computer: GLNXA64.
+===========================================================
+Example 1: build
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 14.5821 	 Subspace dimension: 19 
+Current iteration: 1 	 Current interpolation frequency: 13.9563 	 Subspace dimension: 21 
+Current iteration: 2 	 Current interpolation frequency: 6.37541 	 Subspace dimension: 23 
+Current iteration: 3 	 Current interpolation frequency: 5.66001 	 Subspace dimension: 25 
+Current iteration: 4 	 Current interpolation frequency: 5.18394 	 Subspace dimension: 27 
+Current iteration: 5 	 Current interpolation frequency: 5.20608 	 Subspace dimension: 29 
+Current iteration: 6 	 Current interpolation frequency: 5.20608 	 Subspace dimension: 31 
+The L-infinity-norm is attained for fopt = 5.20608. The norm value is 0.00527633.
+The runtime is 0.04242 seconds.
+===========================================================
+Example 2: pde
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 0 	 Subspace dimension: 6 
+Current iteration: 1 	 Current interpolation frequency: 0 	 Subspace dimension: 6 
+The L-infinity-norm is attained for fopt = 0. The norm value is 10.8358.
+The runtime is 0.016198 seconds.
+===========================================================
+Example 3: CDplayer
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 22.5682 	 Subspace dimension: 31 
+Current iteration: 1 	 Current interpolation frequency: 22.5682 	 Subspace dimension: 31 
+The L-infinity-norm is attained for fopt = 22.5682. The norm value is 2.31982e+06.
+The runtime is 0.024264 seconds.
+===========================================================
+Example 4: iss
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 38.0089 	 Subspace dimension: 57 
+Current iteration: 1 	 Current interpolation frequency: 8.7062 	 Subspace dimension: 63 
+Current iteration: 2 	 Current interpolation frequency: 2.13326 	 Subspace dimension: 69 
+Current iteration: 3 	 Current interpolation frequency: 1.93311 	 Subspace dimension: 75 
+Current iteration: 4 	 Current interpolation frequency: 1.99219 	 Subspace dimension: 81 
+Current iteration: 5 	 Current interpolation frequency: 0.775235 	 Subspace dimension: 87 
+Current iteration: 6 	 Current interpolation frequency: 0.775093 	 Subspace dimension: 93 
+Current iteration: 7 	 Current interpolation frequency: 0.775093 	 Subspace dimension: 97 
+The L-infinity-norm is attained for fopt = 0.775093. The norm value is 0.115887.
+The runtime is 0.252141 seconds.
+===========================================================
+Example 5: beam
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 0.104575 	 Subspace dimension: 16 
+Current iteration: 1 	 Current interpolation frequency: 0.104575 	 Subspace dimension: 16 
+The L-infinity-norm is attained for fopt = 0.104575. The norm value is 4554.87.
+The runtime is 0.076689 seconds.
+===========================================================
+Example 6: S10PI_n1
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 6945.66 	 Subspace dimension: 20 
+Current iteration: 1 	 Current interpolation frequency: 6898.47 	 Subspace dimension: 22 
+Current iteration: 2 	 Current interpolation frequency: 7592.43 	 Subspace dimension: 24 
+Current iteration: 3 	 Current interpolation frequency: 7531.53 	 Subspace dimension: 26 
+Current iteration: 4 	 Current interpolation frequency: 7531.51 	 Subspace dimension: 28 
+Current iteration: 5 	 Current interpolation frequency: 4324.63 	 Subspace dimension: 30 
+Current iteration: 6 	 Current interpolation frequency: 7531.51 	 Subspace dimension: 32 
+Current iteration: 7 	 Current interpolation frequency: 7531.51 	 Subspace dimension: 32 
+The L-infinity-norm is attained for fopt = 7531.51. The norm value is 3.97454.
+The runtime is 0.0858 seconds.
+===========================================================
+Example 7: S20PI_n1
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 6955.13 	 Subspace dimension: 20 
+Current iteration: 1 	 Current interpolation frequency: 7654.16 	 Subspace dimension: 22 
+Current iteration: 2 	 Current interpolation frequency: 4354.71 	 Subspace dimension: 24 
+Current iteration: 3 	 Current interpolation frequency: 7615.79 	 Subspace dimension: 26 
+Current iteration: 4 	 Current interpolation frequency: 7618.31 	 Subspace dimension: 28 
+Current iteration: 5 	 Current interpolation frequency: 7618.31 	 Subspace dimension: 30 
+The L-infinity-norm is attained for fopt = 7618.31. The norm value is 3.44317.
+The runtime is 0.0824 seconds.
+===========================================================
+Example 8: S40PI_n1
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 7643.52 	 Subspace dimension: 20 
+Current iteration: 1 	 Current interpolation frequency: 6972.64 	 Subspace dimension: 22 
+Current iteration: 2 	 Current interpolation frequency: 6957.82 	 Subspace dimension: 24 
+Current iteration: 3 	 Current interpolation frequency: 4344.96 	 Subspace dimension: 26 
+Current iteration: 4 	 Current interpolation frequency: 6958.75 	 Subspace dimension: 28 
+Current iteration: 5 	 Current interpolation frequency: 8100.56 	 Subspace dimension: 30 
+Current iteration: 6 	 Current interpolation frequency: 6958.75 	 Subspace dimension: 32 
+Current iteration: 7 	 Current interpolation frequency: 6958.75 	 Subspace dimension: 32 
+The L-infinity-norm is attained for fopt = 6958.75. The norm value is 3.34732.
+The runtime is 0.158783 seconds.
+===========================================================
+Example 9: S80PI_n1
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 7633.3 	 Subspace dimension: 20 
+Current iteration: 1 	 Current interpolation frequency: 4366.49 	 Subspace dimension: 22 
+Current iteration: 2 	 Current interpolation frequency: 6973.05 	 Subspace dimension: 24 
+Current iteration: 3 	 Current interpolation frequency: 6960.83 	 Subspace dimension: 26 
+Current iteration: 4 	 Current interpolation frequency: 6961.49 	 Subspace dimension: 28 
+Current iteration: 5 	 Current interpolation frequency: 6961.49 	 Subspace dimension: 30 
+The L-infinity-norm is attained for fopt = 6961.49. The norm value is 3.37016.
+The runtime is 0.194257 seconds.
+===========================================================
+Example 10: M10PI_n1
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 10952.9 	 Subspace dimension: 60 
+Current iteration: 1 	 Current interpolation frequency: 7533.16 	 Subspace dimension: 66 
+Current iteration: 2 	 Current interpolation frequency: 8313.49 	 Subspace dimension: 72 
+Current iteration: 3 	 Current interpolation frequency: 5279.92 	 Subspace dimension: 78 
+Current iteration: 4 	 Current interpolation frequency: 4247.36 	 Subspace dimension: 84 
+Current iteration: 5 	 Current interpolation frequency: 3549.66 	 Subspace dimension: 90 
+Current iteration: 6 	 Current interpolation frequency: 7531.81 	 Subspace dimension: 96 
+Current iteration: 7 	 Current interpolation frequency: 7531.81 	 Subspace dimension: 102 
+The L-infinity-norm is attained for fopt = 7531.81. The norm value is 4.05662.
+The runtime is 0.35471 seconds.
+===========================================================
+Example 11: M20PI_n1
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 7610.11 	 Subspace dimension: 60 
+Current iteration: 1 	 Current interpolation frequency: 8213.54 	 Subspace dimension: 66 
+Current iteration: 2 	 Current interpolation frequency: 6943.71 	 Subspace dimension: 72 
+Current iteration: 3 	 Current interpolation frequency: 7151.21 	 Subspace dimension: 78 
+Current iteration: 4 	 Current interpolation frequency: 4109.85 	 Subspace dimension: 84 
+Current iteration: 5 	 Current interpolation frequency: 5119.95 	 Subspace dimension: 90 
+Current iteration: 6 	 Current interpolation frequency: 5064.09 	 Subspace dimension: 96 
+Current iteration: 7 	 Current interpolation frequency: 15359.9 	 Subspace dimension: 102 
+Current iteration: 8 	 Current interpolation frequency: 11093 	 Subspace dimension: 108 
+Current iteration: 9 	 Current interpolation frequency: 5064.12 	 Subspace dimension: 114 
+Current iteration: 10 	 Current interpolation frequency: 17614 	 Subspace dimension: 119 
+Current iteration: 11 	 Current interpolation frequency: 5064.12 	 Subspace dimension: 125 
+Current iteration: 12 	 Current interpolation frequency: 5064.12 	 Subspace dimension: 125 
+The L-infinity-norm is attained for fopt = 5064.12. The norm value is 3.8726.
+The runtime is 0.844132 seconds.
+===========================================================
+Example 12: M40PI_n1
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 7972.61 	 Subspace dimension: 60 
+Current iteration: 1 	 Current interpolation frequency: 8309.46 	 Subspace dimension: 66 
+Current iteration: 2 	 Current interpolation frequency: 6990.68 	 Subspace dimension: 72 
+Current iteration: 3 	 Current interpolation frequency: 7438.82 	 Subspace dimension: 78 
+Current iteration: 4 	 Current interpolation frequency: 5126.31 	 Subspace dimension: 84 
+Current iteration: 5 	 Current interpolation frequency: 10515.7 	 Subspace dimension: 90 
+Current iteration: 6 	 Current interpolation frequency: 5070.4 	 Subspace dimension: 96 
+Current iteration: 7 	 Current interpolation frequency: 5071.07 	 Subspace dimension: 102 
+Current iteration: 8 	 Current interpolation frequency: 5071.07 	 Subspace dimension: 108 
+The L-infinity-norm is attained for fopt = 5071.07. The norm value is 3.81767.
+The runtime is 0.531285 seconds.
+===========================================================
+Example 13: M80PI_n1
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 6978.2 	 Subspace dimension: 60 
+Current iteration: 1 	 Current interpolation frequency: 9564.13 	 Subspace dimension: 66 
+Current iteration: 2 	 Current interpolation frequency: 7624.39 	 Subspace dimension: 72 
+Current iteration: 3 	 Current interpolation frequency: 10646.6 	 Subspace dimension: 78 
+Current iteration: 4 	 Current interpolation frequency: 5808.97 	 Subspace dimension: 84 
+Current iteration: 5 	 Current interpolation frequency: 4135.33 	 Subspace dimension: 90 
+Current iteration: 6 	 Current interpolation frequency: 5135.86 	 Subspace dimension: 96 
+Current iteration: 7 	 Current interpolation frequency: 5072.77 	 Subspace dimension: 102 
+Current iteration: 8 	 Current interpolation frequency: 5072.79 	 Subspace dimension: 108 
+Current iteration: 9 	 Current interpolation frequency: 5072.79 	 Subspace dimension: 112 
+The L-infinity-norm is attained for fopt = 5072.79. The norm value is 3.80375.
+The runtime is 0.848618 seconds.
+===========================================================
+Example 14: peec
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 5.46349 	 Subspace dimension: 138 
+Current iteration: 1 	 Current interpolation frequency: 5.46349 	 Subspace dimension: 140 
+The L-infinity-norm is attained for fopt = 5.46349. The norm value is 0.35261.
+The runtime is 2.25299 seconds.
+===========================================================
+Example 15: S10PI_n
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 6945.66 	 Subspace dimension: 20 
+Current iteration: 1 	 Current interpolation frequency: 6898.47 	 Subspace dimension: 22 
+Current iteration: 2 	 Current interpolation frequency: 7592.43 	 Subspace dimension: 24 
+Current iteration: 3 	 Current interpolation frequency: 7531.53 	 Subspace dimension: 26 
+Current iteration: 4 	 Current interpolation frequency: 7531.51 	 Subspace dimension: 28 
+Current iteration: 5 	 Current interpolation frequency: 4324.63 	 Subspace dimension: 30 
+Current iteration: 6 	 Current interpolation frequency: 7531.51 	 Subspace dimension: 32 
+Current iteration: 7 	 Current interpolation frequency: 7531.51 	 Subspace dimension: 32 
+The L-infinity-norm is attained for fopt = 7531.51. The norm value is 3.97454.
+The runtime is 0.085486 seconds.
+===========================================================
+Example 16: S20PI_n
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 6955.13 	 Subspace dimension: 20 
+Current iteration: 1 	 Current interpolation frequency: 7654.16 	 Subspace dimension: 22 
+Current iteration: 2 	 Current interpolation frequency: 4354.71 	 Subspace dimension: 24 
+Current iteration: 3 	 Current interpolation frequency: 7615.79 	 Subspace dimension: 26 
+Current iteration: 4 	 Current interpolation frequency: 7618.31 	 Subspace dimension: 28 
+Current iteration: 5 	 Current interpolation frequency: 7618.31 	 Subspace dimension: 30 
+The L-infinity-norm is attained for fopt = 7618.31. The norm value is 3.44317.
+The runtime is 0.078767 seconds.
+===========================================================
+Example 17: S40PI_n
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 7643.52 	 Subspace dimension: 20 
+Current iteration: 1 	 Current interpolation frequency: 6972.64 	 Subspace dimension: 22 
+Current iteration: 2 	 Current interpolation frequency: 6957.82 	 Subspace dimension: 24 
+Current iteration: 3 	 Current interpolation frequency: 4344.96 	 Subspace dimension: 26 
+Current iteration: 4 	 Current interpolation frequency: 6958.75 	 Subspace dimension: 28 
+Current iteration: 5 	 Current interpolation frequency: 8100.56 	 Subspace dimension: 30 
+Current iteration: 6 	 Current interpolation frequency: 6958.75 	 Subspace dimension: 32 
+Current iteration: 7 	 Current interpolation frequency: 6958.75 	 Subspace dimension: 32 
+The L-infinity-norm is attained for fopt = 6958.75. The norm value is 3.34732.
+The runtime is 0.150224 seconds.
+===========================================================
+Example 18: S80PI_n
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 7633.3 	 Subspace dimension: 20 
+Current iteration: 1 	 Current interpolation frequency: 4366.49 	 Subspace dimension: 22 
+Current iteration: 2 	 Current interpolation frequency: 6973.05 	 Subspace dimension: 24 
+Current iteration: 3 	 Current interpolation frequency: 6960.83 	 Subspace dimension: 26 
+Current iteration: 4 	 Current interpolation frequency: 6961.49 	 Subspace dimension: 28 
+Current iteration: 5 	 Current interpolation frequency: 6961.49 	 Subspace dimension: 30 
+The L-infinity-norm is attained for fopt = 6961.49. The norm value is 3.37016.
+The runtime is 0.195583 seconds.
+===========================================================
+Example 19: M10PI_n
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 10952.9 	 Subspace dimension: 60 
+Current iteration: 1 	 Current interpolation frequency: 7533.16 	 Subspace dimension: 66 
+Current iteration: 2 	 Current interpolation frequency: 7531.51 	 Subspace dimension: 12 
+Current iteration: 3 	 Current interpolation frequency: 7531.81 	 Subspace dimension: 12 
+Current iteration: 4 	 Current interpolation frequency: 7531.81 	 Subspace dimension: 12 
+The L-infinity-norm is attained for fopt = 7531.81. The norm value is 4.05662.
+The runtime is 0.097567 seconds.
+===========================================================
+Example 20: M20PI_n
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 7610.11 	 Subspace dimension: 60 
+Current iteration: 1 	 Current interpolation frequency: 8213.54 	 Subspace dimension: 66 
+Current iteration: 2 	 Current interpolation frequency: 6943.71 	 Subspace dimension: 72 
+Current iteration: 3 	 Current interpolation frequency: 7151.21 	 Subspace dimension: 78 
+Current iteration: 4 	 Current interpolation frequency: 4109.85 	 Subspace dimension: 84 
+Current iteration: 5 	 Current interpolation frequency: 5119.95 	 Subspace dimension: 90 
+Current iteration: 6 	 Current interpolation frequency: 5064.09 	 Subspace dimension: 96 
+Current iteration: 7 	 Current interpolation frequency: 15359.9 	 Subspace dimension: 102 
+Current iteration: 8 	 Current interpolation frequency: 11093 	 Subspace dimension: 108 
+Current iteration: 9 	 Current interpolation frequency: 5064.12 	 Subspace dimension: 114 
+Current iteration: 10 	 Current interpolation frequency: 5064.12 	 Subspace dimension: 119 
+The L-infinity-norm is attained for fopt = 5064.12. The norm value is 3.8726.
+The runtime is 0.621514 seconds.
+===========================================================
+Example 21: M40PI_n
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 7972.61 	 Subspace dimension: 60 
+Current iteration: 1 	 Current interpolation frequency: 8309.46 	 Subspace dimension: 66 
+Current iteration: 2 	 Current interpolation frequency: 6990.68 	 Subspace dimension: 72 
+Current iteration: 3 	 Current interpolation frequency: 7438.82 	 Subspace dimension: 78 
+Current iteration: 4 	 Current interpolation frequency: 5126.31 	 Subspace dimension: 84 
+Current iteration: 5 	 Current interpolation frequency: 10515.7 	 Subspace dimension: 90 
+Current iteration: 6 	 Current interpolation frequency: 5070.4 	 Subspace dimension: 96 
+Current iteration: 7 	 Current interpolation frequency: 5071.07 	 Subspace dimension: 102 
+Current iteration: 8 	 Current interpolation frequency: 5071.07 	 Subspace dimension: 108 
+The L-infinity-norm is attained for fopt = 5071.07. The norm value is 3.81767.
+The runtime is 0.517923 seconds.
+===========================================================
+Example 22: M80PI_n
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 6978.2 	 Subspace dimension: 60 
+Current iteration: 1 	 Current interpolation frequency: 9564.13 	 Subspace dimension: 66 
+Current iteration: 2 	 Current interpolation frequency: 7624.39 	 Subspace dimension: 72 
+Current iteration: 3 	 Current interpolation frequency: 10646.6 	 Subspace dimension: 78 
+Current iteration: 4 	 Current interpolation frequency: 5808.97 	 Subspace dimension: 84 
+Current iteration: 5 	 Current interpolation frequency: 4135.33 	 Subspace dimension: 90 
+Current iteration: 6 	 Current interpolation frequency: 5135.86 	 Subspace dimension: 96 
+Current iteration: 7 	 Current interpolation frequency: 5072.77 	 Subspace dimension: 102 
+Current iteration: 8 	 Current interpolation frequency: 5072.79 	 Subspace dimension: 108 
+Current iteration: 9 	 Current interpolation frequency: 5072.79 	 Subspace dimension: 112 
+The L-infinity-norm is attained for fopt = 5072.79. The norm value is 3.80375.
+The runtime is 0.8861 seconds.
+===========================================================
+Example 23: bips98_606
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 3.81762 	 Subspace dimension: 76 
+Current iteration: 1 	 Current interpolation frequency: 3.81762 	 Subspace dimension: 84 
+The L-infinity-norm is attained for fopt = 3.81762. The norm value is 201.956.
+The runtime is 0.711689 seconds.
+===========================================================
+Example 24: bips98_1142
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 4.93006 	 Subspace dimension: 76 
+Current iteration: 1 	 Current interpolation frequency: 4.93006 	 Subspace dimension: 84 
+The L-infinity-norm is attained for fopt = 4.93006. The norm value is 160.427.
+The runtime is 0.881687 seconds.
+===========================================================
+Example 25: bips98_1450
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 5.64571 	 Subspace dimension: 76 
+Current iteration: 1 	 Current interpolation frequency: 5.64571 	 Subspace dimension: 84 
+The L-infinity-norm is attained for fopt = 5.64571. The norm value is 197.389.
+The runtime is 1.01837 seconds.
+===========================================================
+Example 26: bips07_1693
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 5.53765 	 Subspace dimension: 76 
+Current iteration: 1 	 Current interpolation frequency: 5.53765 	 Subspace dimension: 84 
+The L-infinity-norm is attained for fopt = 5.53765. The norm value is 204.168.
+The runtime is 1.12505 seconds.
+===========================================================
+Example 27: bips07_1998
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 6.39039 	 Subspace dimension: 80 
+Current iteration: 1 	 Current interpolation frequency: 6.3996 	 Subspace dimension: 88 
+Current iteration: 2 	 Current interpolation frequency: 6.3996 	 Subspace dimension: 96 
+The L-infinity-norm is attained for fopt = 6.3996. The norm value is 197.064.
+The runtime is 1.78465 seconds.
+===========================================================
+Example 28: bips07_2476
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 5.88805 	 Subspace dimension: 80 
+Current iteration: 1 	 Current interpolation frequency: 5.88973 	 Subspace dimension: 88 
+Current iteration: 2 	 Current interpolation frequency: 5.88973 	 Subspace dimension: 96 
+The L-infinity-norm is attained for fopt = 5.88973. The norm value is 189.579.
+The runtime is 2.03411 seconds.
+===========================================================
+Example 29: bips07_3078
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 5.55793 	 Subspace dimension: 80 
+Current iteration: 1 	 Current interpolation frequency: 5.55793 	 Subspace dimension: 88 
+The L-infinity-norm is attained for fopt = 5.55793. The norm value is 209.445.
+The runtime is 2.21319 seconds.
+===========================================================
+Example 30: xingo_afonso_itaipu
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 1.09176 	 Subspace dimension: 19 
+Current iteration: 1 	 Current interpolation frequency: 1.09165 	 Subspace dimension: 21 
+Current iteration: 2 	 Current interpolation frequency: 1.09165 	 Subspace dimension: 23 
+The L-infinity-norm is attained for fopt = 1.09165. The norm value is 4.05605.
+The runtime is 0.642766 seconds.
+===========================================================
+Example 31: mimo8x8_system
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 1.03818 	 Subspace dimension: 19 
+Current iteration: 1 	 Current interpolation frequency: 1.03312 	 Subspace dimension: 21 
+Current iteration: 2 	 Current interpolation frequency: 1.03312 	 Subspace dimension: 23 
+The L-infinity-norm is attained for fopt = 1.03312. The norm value is 0.0534292.
+The runtime is 1.32434 seconds.
+===========================================================
+Example 32: mimo28x28_system
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 3.88654 	 Subspace dimension: 19 
+Current iteration: 1 	 Current interpolation frequency: 1.07914 	 Subspace dimension: 21 
+Current iteration: 2 	 Current interpolation frequency: 1.07935 	 Subspace dimension: 23 
+Current iteration: 3 	 Current interpolation frequency: 1.07935 	 Subspace dimension: 25 
+The L-infinity-norm is attained for fopt = 1.07935. The norm value is 0.118618.
+The runtime is 2.79645 seconds.
+===========================================================
+Example 33: mimo46x46_system
+===========================================================
+The function corresponds to a linear system. 
+The Boyd-Balakrishnan algorithm is called to compute the L-infinity-norm in the subspace iterations. 
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 1.07934 	 Subspace dimension: 19 
+Current iteration: 1 	 Current interpolation frequency: 4.48725 	 Subspace dimension: 21 
+Current iteration: 2 	 Current interpolation frequency: 1.07908 	 Subspace dimension: 23 
+Current iteration: 3 	 Current interpolation frequency: 1.07908 	 Subspace dimension: 25 
+The L-infinity-norm is attained for fopt = 1.07908. The norm value is 205.631.
+The runtime is 3.92555 seconds.
+===========================================================
+Example 34: Delay Model
+===========================================================
+The initial subspaces for interpolation have been determined. 
+Current iteration: 0 	 Current interpolation frequency: 3.07547 	 Subspace dimension: 10 
+Current iteration: 1 	 Current interpolation frequency: 3.07547 	 Subspace dimension: 11 
+The L-infinity-norm is attained for fopt = 3.07547. The norm value is 0.23766.
+The runtime is 1.83055 seconds.
